@@ -43,21 +43,7 @@ const questions = [{
 
 // function to write README file
 function writeToFile(fileName, data) {
-    let template = `# ${data.title}
-    ![screenshot](${data.screenshot})
-    ## Description
-    ${data.description}
-    ## Table of Contents
-    *[link text](#installation)Installation
-    *[link text](#usage)Usage
-    *[link text](#contributors)Contributors
-    ## <a name="installation"></a>Installation Instructions
-    ${data.instructions}
-    ## <a name="usage"></a>Usage 
-    ${data.use}
-    ## <a name="contributors"></a>Contributors
-    ${data.contributors}
-    `
+    let template = `# ${data.title}\n![screenshot](${data.screenshot})\n## Description\n${data.description}\n## Table of Contentsn\*[link text](#installation)Installationn\*[link text](#usage)Usage\n*[link text](#contributors)Contributors\n## <a name="installation"></a>Installation Instructions\n${data.instructions}\n## <a name="usage"></a>Usage \n${data.use}\n## <a name="contributors"></a>Contributors\n${data.contributors}`
 
     ;
     fs.writeFile(fileName, template, function (err) {
