@@ -43,9 +43,7 @@ const questions = [{
 
 // function to write README file
 function writeToFile(fileName, data) {
-    let template = `
-    # ${data.title}
-
+    let template = `# ${data.title}
     ![screenshot](${data.screenshot})
     ## Description
     ${data.description}
