@@ -1,7 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-const fileName = "README.me";
+
+
 // array of questions for user
 const questions = [{
         type: "input",
@@ -30,7 +31,7 @@ const questions = [{
     },
     {
         type: "input",
-        name: "usage",
+        name: "use",
         message: "Please detail what - if any - limitation you've placed on the use of your application."
     },
     {
@@ -42,7 +43,34 @@ const questions = [{
 
 // function to write README file
 function writeToFile(fileName, data) {
-    console.log(questions)
+    let template = `
+    #${data.title}
+    ![screenshot](${data.screenshot})"
+    ##Description
+    ${data.description}
+    ##Table of Contents
+    *[link text](#installation)Installation
+    *[link text](#usage)Usage
+    *[link text](#contributors)Contributors
+    ## <a name="installation"></a>Installation Instructions
+    ${data.instructions}
+    ## <a name="usage"></a>Usage 
+    ${data.use}
+    ## <a name="contributors"></a>Contributors
+    ${data.contributors}
+    `
+
+    ;
+    fs.writeFile(fileName, template, function (err) {
+
+        if (err) {
+            return console.log(err);
+        }
+
+        console.log("Success!");
+
+    });
+
 }
 
 // function to initialize program
@@ -50,7 +78,7 @@ function init() {
     inquirer
         .prompt(questions)
         .then(function (questions) {
-            writeToFile(fileName, questions);
+            writeToFile("README.me", questions);
         })
 }
 
