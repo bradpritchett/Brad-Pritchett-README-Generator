@@ -44,11 +44,12 @@ const questions = [{
 // function to write README file
 function writeToFile(fileName, data) {
     let template = `
-    #${data.title}
-    ![screenshot](${data.screenshot})"
-    ##Description
+    # ${data.title}
+
+    ![screenshot](${data.screenshot})
+    ## Description
     ${data.description}
-    ##Table of Contents
+    ## Table of Contents
     *[link text](#installation)Installation
     *[link text](#usage)Usage
     *[link text](#contributors)Contributors
@@ -78,7 +79,7 @@ function init() {
     inquirer
         .prompt(questions)
         .then(function (questions) {
-            writeToFile("README.me", questions);
+            writeToFile("README.md", questions);
         })
 }
 
