@@ -55,7 +55,7 @@ const questions = [{
 ];
 // function to write README file
 function writeToFile(fileName, data) {
-    let template = `# ${data.title}\n<${data.repository}>\n${data.screenshot ? `![screenshot](${data.screenshot})`: ``}\n## Description\n${data.description}${data.instructions ? `\n## Installation Instructions\n${data.instructions}`: ``}${data.use ? `\n## Usage\n${data.use}`: ``}${data.contributors ? `\n## Contributors\n${data.contributors}`: ``}${data.badges ? `\n##License\n![License](https://img.shields.io/badge/License-${data.badges}-lightblue.svg)`:``}\n## Questions\nIf you have any questions, my github handle is <https:github.com/${data.github}> and I can be reached at <${data.email}>`
+    let template = `# ${data.title}\n<${data.repository}>\n${data.screenshot ? `![screenshot](${data.screenshot})`: ``}\n## Description\n${data.description}${data.instructions ? `\n## Installation Instructions\n${data.instructions}`: ``}${data.use ? `\n## Usage\n${data.use}`: ``}${data.contributors ? `\n## Contributors\n${data.contributors}`: ``}\n${data.badges ? `##License\n![License](https://img.shields.io/badge/License-${data.badges}-lightblue.svg)`:``}\n## Questions\nIf you have any questions, my github handle is <https:github.com/${data.github}> and I can be reached at <${data.email}>`
 
     ;
     fs.writeFile(fileName, template, function (err) {
