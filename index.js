@@ -4,6 +4,16 @@ const fs = require("fs");
 // array of questions for user
 const questions = [{
         type: "input",
+        name: "github",
+        message: "What is your GitHub name?"
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is your email?"
+    },
+    {
+        type: "input",
         name: "title",
         message: "What is your project title?"
     },
@@ -15,7 +25,7 @@ const questions = [{
     {
         type: "input",
         name: "screenshot",
-        message: "Enter the URL of any screenshots."
+        message: "Enter the URL of any screenshots (Leave blank if none)."
     },
     {
         type: "input",
@@ -25,23 +35,27 @@ const questions = [{
     {
         type: "input",
         name: "instructions",
-        message: "Explain how to install the project."
+        message: "Explain how to install the project (Leave blank if none)"
     },
     {
         type: "input",
         name: "use",
-        message: "Please detail what - if any - limitation you've placed on the use of your application."
+        message: "Please detail what - if any - limitation you've placed on the use of your application (Leave blank if none)"
     },
     {
         type: "input",
         name: "contributors",
-        message: "Please enter any contributors."
+        message: "Please enter any contributors (Leave blank if none)"
+    },
+    {
+        type: "input",
+        name: "badges",
+        message: "What, if any, licenses do you wish to display? (Leave blank if none)"
     }
 ];
-
 // function to write README file
 function writeToFile(fileName, data) {
-    let template = `# ${data.title}\n## Link to Repository\n[link to repository!](${data.repository})![screenshot](${data.screenshot})\n## Description\n${data.description}\n## Installation Instructions\n${data.instructions}\n## Usage\n${data.use}\n## Contributors\n${data.contributors}`
+    let template = `# ${data.title}\n[link to repository!](${data.repository})\n${data.screenshot ? `![screenshot](${data.screenshot})`: ``}\n## Description\n${data.description}${data.instructions ? `\n## Installation Instructions\n${data.instructions}`: ``}${data.use ? `\n## Usage\n${data.use}`: ``}${data.contributors ? `\n## Contributors\n${data.contributors}`: ``}${data.badges ? `\n[![License](https://img.shields.io/badge/License-${data.badges}-lightblue.svg)]`:``}\n## Questions\nIf you have any questions, my github handle is ${data.github} and I can be reached at <${data.email}>`
 
     ;
     fs.writeFile(fileName, template, function (err) {
