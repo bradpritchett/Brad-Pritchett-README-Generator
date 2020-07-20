@@ -4,7 +4,7 @@
 ## Description
 This simple program prompts the user to explain their GitHub project and then generates a README.md with functioning Markdown for easy upload to github.com
 ## Installation Instructions
-
+/github/license/:user/:repo
 ## Usage
 
 ## Contributors
