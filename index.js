@@ -1,18 +1,16 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const util = require("util");
-
 
 // array of questions for user
 const questions = [{
         type: "input",
-        name: "gitname",
-        message: "What is your github handle?"
+        name: "title",
+        message: "What is your project title?"
     },
     {
         type: "input",
-        name: "title",
-        message: "What is your project title?"
+        name: "repository",
+        message: "Enter the Repository URL here."
     },
     {
         type: "input",
@@ -43,7 +41,7 @@ const questions = [{
 
 // function to write README file
 function writeToFile(fileName, data) {
-    let template = `# ${data.title}\n![screenshot](${data.screenshot})\n## Description\n${data.description}\n## Table of Contentsn\*[link text](#installation)Installationn\*[link text](#usage)Usage\n*[link text](#contributors)Contributors\n## <a name="installation"></a>Installation Instructions\n${data.instructions}\n## <a name="usage"></a>Usage \n${data.use}\n## <a name="contributors"></a>Contributors\n${data.contributors}`
+    let template = `# ${data.title}\n## Link to Repository\n[link to repository!](${data.repository})![screenshot](${data.screenshot})\n## Description\n${data.description}\n## Installation Instructions\n${data.instructions}\n## Usage\n${data.use}\n## Contributors\n${data.contributors}`
 
     ;
     fs.writeFile(fileName, template, function (err) {
