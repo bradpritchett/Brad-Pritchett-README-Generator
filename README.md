@@ -7,6 +7,7 @@ This simple project prompts users to input information regarding a project share
 Requires NODE. Run node i to install dependencies.
 ## Usage
 This can be used by anyone for any reason, but if it makes money then I get half.
+
 ##License
 ![License](https://img.shields.io/badge/License-inquirer-lightblue.svg)
 ## Questions
